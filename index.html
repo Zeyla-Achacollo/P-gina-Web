@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="estilo.css">
+    <title>Mi pagina Web L-CH</title>
+
+    <body>
+        <audio id="background-music" loop autoplay>
+            <source src="Die For You Instrumental.mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    
+        <!-- El botón contiene íconos -->
+        <button id="toggle-music"><i id="music-icon" class="fas fa-pause"></i></button>
+    
+        <script>
+            const music = document.getElementById('background-music');
+            const toggleButton = document.getElementById('toggle-music');
+            const musicIcon = document.getElementById('music-icon');
+    
+            // Reproduce la música al cargar la página
+            window.onload = function() {
+                music.play().then(() => {
+                    musicIcon.classList.remove('fa-play');
+                    musicIcon.classList.add('fa-pause');
+                }).catch((error) => {
+                    console.log("Error al intentar reproducir la música: " + error);
+                });
+            };
+    
+            // Alternar entre reproducir/pausar al hacer clic en el botón
+            toggleButton.addEventListener('click', function() {
+                if (music.paused) {
+                    music.play();
+                    musicIcon.classList.remove('fa-play');
+                    musicIcon.classList.add('fa-pause');
+                } else {
+                    music.pause();
+                    musicIcon.classList.remove('fa-pause');
+                    musicIcon.classList.add('fa-play');
+                }
+            });
+        </script>
+    </body>
+        
+
+</head>
+
+<body>
+    <!-- SECCION I N I C I O -->
+    <section id="inicio">
+        <div class="contenido">
+            <header>
+                <div class="contenido-header">
+                    <h1>Zeyla Michel</h1>
+                    <nav id="nav" class="">
+                        <ul id="links">
+                            <li><a href="#inicio" class="seleccionado" onclick="seleccionar(this)">INICIO</a></li>
+                            <li><a href="#sobremi" onclick="seleccionar(this)">SOBRE MI</a></li>
+                            <li><a href="#servicios" onclick="seleccionar(this)">SERVICIOS</a></li>
+                            <li><a href="#portfolio" onclick="seleccionar(this)">PORTAFOLIO</a></li>
+                            <li><a href="#contacto" onclick="seleccionar(this)">CONTACTO</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Icono del menu responsive -->
+                    <div id="icono-nav" onclick="responsiveMenu()">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+
+
+                    <div class="redes">
+                        <a href="https://t.me/ZeylaMichel" target="_blank" href="#"><i
+                                class="fa-brands fa-telegram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100044325396980&mibextid=ZbWKwL" target="_blank"
+                            href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/zeyla_michel/profilecard/?igsh=MXJtYmd2azNkc2RrYg==  " target="_blank" href="#"><i
+                                class="fa-brands fa-instagram-square"></i></a>
+                        <a href="https://www.tiktok.com/@zeyla._.michel?_t=8rYwqsYOWs4&_r=1" target="_blank" href="#"><i
+                                class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://github.com/Zeyla-Achacollo?tab=overview&from=2024-10-01&to=2024-10-31" target="_blank" href="#"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="https://wa.me/59167261156" target="_blank" href="#"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </header>
+
+            <script src="script.js"></script>
+
+            <!-- Para mostrar el mensaje aleatorio -->
+            <script>
+                const mensajes = [
+                    "¡Nunca te rindas! Cada día es una nueva oportunidad.",
+                    "Recuerda que la perseverancia te llevará al éxito.",
+                    "El verdadero poder está en tu determinación.",
+                    "Cada desafío es una oportunidad para crecer.",
+                    "Sigue adelante, ¡los grandes logros están por venir!",
+                    "La fuerza de un desarrollador no se mide solo por su experiencia, sino por su determinación para seguir adelante.",
+                    "Sigue adelante, no importa cuántas veces caigas, levántate con más fuerza. ¡Tu historia apenas está comenzando!",
+                    "No importa cuán oscuro sea el camino, siempre hay una llama dentro de ti que nunca se apaga.",
+                    "Cada batalla te hace más fuerte, no solo por la victoria, sino por lo que aprendes al caer.",
+                    "Confía en tu potencial, incluso cuando sientas miedo. ¡Ese es el momento en que te vuelves imparable!",
+                    "Nunca estás solo en este camino. Cada esfuerzo, cada sacrificio te acerca más a tu meta.",
+                    "No estás luchando en vano, cada día avanzas hacia un futuro más brillante.",
+                    "No importa cuántas veces caigas, lo importante es levantarte más fuerte.",
+                    "No hay atajos hacia la grandeza, solo practica, entrenamiento constante y una voluntad inquebrantable.",
+                    "Para ser el mejor, primero debes superar tus propias dudas."
+                ];
+                function mostrarMensajeAleatorio() {
+                    const mensajeAleatorio = mensajes[Math.floor(Math.random() * mensajes.length)];
+                    document.querySelector('.descripcion').innerText = mensajeAleatorio;
+                }
+                window.onload = mostrarMensajeAleatorio;
+            </script>
+</body>
+
+<div class="presentacion">
+    <p class="bienvenida">Hola y bienvenidos</p>
+    <h2>Soy <span>Zeyla Michel</span>, Estudiante de Ingenieria en Sistemas</h2>
+    <p class="descripcion">
+    </p>
+    <a href="#portfolio">Ir a Portafolio</a>
+</div>
+</div>
+</section>
+
+<!-- SECCION S O B R E M I -->
+<section id="sobremi">
+    <div class="sobremi">
+        <p class="titulo-seccion">Sobre Mi</p>
+        <h2>Hola, Soy <span>Zeyla Michel</span> </h2>
+        <h3>Estudiante de Ingenieria en Sistemas</h3>
+        <p>Actualmente estudio en la Facultad Nacional de Ingeniería (FNI) me quiero especializar en el desarrollo de sitios y
+            aplicaciones web que mejoran la interacción entre usuarios y tecnología. Algunos de mis proyectos estaran
+            enfocados en facilitar el acceso a recursos educativos, promover la difusión de información en la
+            Universidad Técnica de Oruro (UTO). Mi objetivo es crear plataformas que impulsen el aprendizaje, la
+            colaboración y otras cosas para la vida cotidiana.</p>
+        <p>Explora mis trabajos y descubre cómo a través de la tecnología, podemos hacer el conocimiento más accesible.
+        </p>
+        <a href="#">Descargar CV</a>
+
+        <div class="fila">
+            <!-- Datos Personales -->
+            <div class="col">
+                <h3>Datos Personales</h3>
+                <ul>
+                    <li>
+                        <strong>Fecha de Nacimineto</strong>
+                        30-09-2003
+                    </li>
+                    <li>
+                        <strong>Celular</strong>
+                        67261156
+                    </li>
+                    <li>
+                        <strong>Email</strong>
+                        achacollozeyla9@gmail.com
+                    </li>
+                    <li>
+                        <strong>Profesion u Oficio</strong>
+                        <span>Universitaria</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Mis Intereses -->
+            <div class="col">
+                <h3>Intereses</h3>
+                <div class="contenedor-intereses">
+                    <div class="interes">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span>JUEGOS</span>
+                    </div>
+                    <div class="interes">
+                        <i class="fa-solid fa-headphones"></i>
+                        <span>MUSICA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECCION S E R V I C I O S -->
+<section id="servicios">
+    <h3 class="titulo-seccion">MIS SERVICIOS</h3>
+    <div class="fila">
+        <div class="servicio">
+            <span class="icono"> <i class="fa-solid fa-code"></i></span>
+            <h4>Diseño de Sitios Web</h4>
+            <hr>
+            <ul class="servicios-tag">
+            </ul>
+            <p>Tengo una Experiencia intermadia pero se la creacion de sitios Web enfocados en un diseño limpio y funcional. </p>
+        </div>
+        <div class="servicio">
+            <span class="icono"><i class="fa-solid fa-file-code"></i></span>
+            <h4>Aprendizaje en Testeo</h4>
+            <hr>
+            <ul class="servicios-tag">
+            </ul>
+            <p>Tengo conocimiento sobre testing pero sigo en proceso para aprender mas.</p>
+        </div>
+        <div class="servicio">
+            <span class="icono"><i class="fa-solid fa-arrow-trend-up"></i></span>
+            <h4>Produccion y Edicion</h4>
+            <hr>
+            <ul class="servicios-tag">
+            </ul>
+            <p>La produccion y edicion de alta calidad para poder promocionar productos, servicios y atraer al publico.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECCION H A B I L I D A D E S -->
+<section class="skills" id="skills">
+    <div class="contenido-seccion">
+        <h2>Habilidades</h2>
+        <div class="fila">
+            <!-- Habilidad Técnica -->
+            <div class="col">
+                <h3>Habilidad Técnica</h3>
+                <div class="skill">
+                    <span>Javascript</span>
+                    <div class="barra-skill">
+                        <div class="progreso">
+                            <span>50%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>HTML & CSS</span>
+                    <div class="barra-skill">
+                        <div class="progreso">
+                            <span>75%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>C++</span>
+                    <div class="barra-skill">
+                        <div class="progreso">
+                            <span>50%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>Base de Datos</span>
+                    <div class="barra-skill">
+                        <div class="progreso">
+                            <span>50%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>Testing</span>
+                    <div class="barra-skill">
+                        <div class="progreso">
+                            <span>50%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Habilidades Profesionales -->
+            <div class="col">
+                <h3>Habilidades Profesionales</h3>
+                <div class="skill">
+                    <span>Comunicación</span>
+                    <div class="barra-skill">
+                        <div class="progreso">
+                            <span>70%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>Trabajo en Equipo</span>
+                    <div class="barra-skill">
+                        <div class="progreso">
+                            <span>50%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>Creatividad</span>
+                    <div class="barra-skill">
+                        <div class="progreso">
+                            <span>50%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>Dedicación</span>
+                    <div class="barra-skill">
+                        <div class="progreso">
+                            <span>60%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>Optimismo</span>
+                    <div class="barra-skill">
+                        <div class="progreso">
+                            <span>60%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECCION PORTAFOLIO -->
+<section id="portfolio">
+    <h3 class="titulo-seccion">Mis Proyectos</h3>
+    <div class="fila">
+        <div class="proyecto">
+            <div class="overlay"></div>
+            <img src="img/proyecto1.jpeg" alt="">
+            <div class="info">
+                <h4>Venta de Motos"</h4>
+                <p>Una pagina para comprar, ver los modelos y precio de las motos</p>
+            </div>
+        </div>
+        <div class="proyecto">
+            <div class="overlay"></div>
+            <img src="img/proyecto2.jpeg" alt="">
+            <div class="info">
+                <h4>Compra de Productos </h4>
+                <p>Una pagina para comprar tus productos necesarios</p>
+            </div>
+        </div>
+        <div class="proyecto">
+            <div class="overlay"></div>
+            <img src="img/proyecto3.jpeg" alt="">
+            <div class="info">
+                <h4>Descripcion Proyecto</h4>
+                <p>Repositorio "UTO-Material"</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECCTION C O N T A C T O -->
+<section id="contacto">
+    <h3 class="titulo-seccion">Contactactame</h3>
+    <div class="contenedor-form">
+        <form action="">
+            <div class="fila mitad">
+                <input type="text" placeholder="Nombre Completo *" class="input-mitad">
+                <input type="email" placeholder="Dirección de Email" class="input-mitad">
+            </div>
+            <div class="fila">
+                <input type="text" placeholder="Tema..." class="input-full">
+            </div>
+            <div class="fila">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Tu Mensaje..." class="input-full"></textarea>
+            </div>
+
+            <input type="submit" value="Enviar Mensaje" class="btn-enviar">
+        </form>
+    </div>
+</section>
+
+<!-- SECCION FOOTER -->
+<footer>
+    <p>Todos los derechos reservados - 2024</p>
+    <div class="redes">
+        <a href="https://t.me/ZeylaMichel" target="_blank" href="#"><i
+            class="fa-brands fa-telegram"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=100044325396980&mibextid=ZbWKwL" target="_blank"
+        href="#"><i class="fa-brands fa-facebook"></i></a>
+    <a href="https://www.instagram.com/zeyla_michel/profilecard/?igsh=MXJtYmd2azNkc2RrYg==" target="_blank" href="#"><i
+            class="fa-brands fa-instagram-square"></i></a>
+    <a href="https://www.tiktok.com/@zeyla._.michel?_t=8rYwqsYOWs4&_r=1" target="_blank" href="#"><i
+            class="fa-brands fa-tiktok"></i></a>
+    <a href="https://github.com/Zeyla-Achacollo?tab=overview&from=2024-10-01&to=2024-10-31" target="_blank" href="#"><i
+            class="fa-brands fa-github"></i></a>
+    <a href="https://wa.me/59167261156" target="_blank" href="#"><i
+            class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+</body>
+
+</html>
